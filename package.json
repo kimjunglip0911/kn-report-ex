@@ -1,0 +1,13 @@
+{
+  "name": "kn-report-ex",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Portfolio logistics warehouse report. TypeScript toolchain only.",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2"
+  }
+}
