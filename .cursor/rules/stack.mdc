@@ -1,5 +1,5 @@
 ---
-description: kn-report-ex는 Next.js 16.4.5와 TypeScript 7.0.2만 쓰는 포트폴리오다. DB와 Python은 두지 않는다.
+description: kn-report-ex는 Next.js 16.4.5와 TypeScript 7.0.2만 쓰는 포트폴리오다. Git 원격은 SSH origin이고 브랜치는 master 하나다.
 alwaysApply: true
 ---
 
@@ -27,6 +27,13 @@ const nextConfig = {};
 ## 표기
 
 - 주석, README, 커밋 메시지는 한글. 식별자와 라우트는 영어.
+
+## Git
+
+- 원격은 `origin` 하나다. 주소는 `git@github.com:kimjunglip0911/kn-report-ex.git`이다.
+- 푸시는 이 SSH 주소로만 한다. 대상 브랜치는 `origin/master`다.
+- 브랜치는 `master` 하나만 둔다. 다른 브랜치를 만들거나 다른 이름으로 푸시하지 않는다.
+- 커밋은 로컬에서 만든 뒤 `git push`로 올린다. GitHub 웹 편집으로 커밋을 만들지 않는다.
 - 푸시는 사용자가 요청할 때만 한다.
 
 ## 현재 코드
