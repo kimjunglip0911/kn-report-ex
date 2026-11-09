@@ -26,6 +26,7 @@ npx next --version
 
 ## 주의사항
 
+- 이 저장소의 에이전트 규칙은 `.cursor/rules/stack.mdc`이다.
 - 직접 의존성은 `next` 16.4.5, `react` 19.3.1, `react-dom` 19.3.1, `typescript` 7.0.2이다.
 - 데이터는 연결하지 않는다. Python 백엔드를 두지 않는다.
 - `src/ping.ts`의 `ping`은 화면이 아니라 타입 검사 샘플이다.
