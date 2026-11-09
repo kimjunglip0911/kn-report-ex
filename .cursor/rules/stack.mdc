@@ -10,7 +10,7 @@ alwaysApply: true
 ## 사용
 
 - Next.js `16.4.5`, React `19.3.1`, react-dom `19.3.1`
-- TypeScript `7.0.2`를 `devDependencies`에 정확한 버전으로 둔다.
+- TypeScript `7.0.2`, `@types/react` `19.3.0`, `@types/react-dom` `19.3.0`, `@types/node` `26.6.6`을 `devDependencies`에 정확한 버전으로 둔다. React 패키지에는 선언 파일이 없다.
 - 타입 검사는 `npm run typecheck`(`tsc --noEmit`)로 한다.
 - 패키지나 버전을 바꾸면 `package.json`, `package-lock.json`, `README.md`, 이 파일을 같이 맞춘다.
 
@@ -38,5 +38,5 @@ const nextConfig = {};
 
 ## 현재 코드
 
-- `app/`과 `pages/`는 아직 없다. 화면을 만들기 전에는 `next dev`를 사이트가 뜬 것으로 보지 않는다.
+- 화면은 `src/app`이다. 헤더·풋·왼쪽 호버 메뉴가 있고 본문은 비어 있다.
 - `src/ping.ts`의 `ping`은 타입 검사 샘플이다. 레포트 화면으로 키우지 않는다.
