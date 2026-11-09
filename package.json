@@ -2,12 +2,20 @@
   "name": "kn-report-ex",
   "version": "0.1.0",
   "private": true,
-  "description": "Portfolio logistics warehouse report. TypeScript toolchain only.",
+  "description": "Portfolio logistics warehouse report. Next.js and TypeScript, no database.",
   "type": "module",
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "typescript": "7.0.2"
+  },
+  "dependencies": {
+    "next": "16.4.5",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
   }
 }
