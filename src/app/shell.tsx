@@ -31,7 +31,9 @@ export function SiteShell({ children }: { children: ReactNode }) {
   const closeTimer = useRef<number | null>(null);
   const menuBtn = useRef<HTMLButtonElement>(null);
   const menuId = useId();
+  const subId = useId();
   const path = usePathname();
+  const [groupOpen, setGroupOpen] = useState(path.startsWith("/inbound"));
 
   modeRef.current = mode;
   hoverRef.current = canHover;
@@ -66,6 +68,10 @@ export function SiteShell({ children }: { children: ReactNode }) {
       clearTimer(closeTimer);
     };
   }, []);
+
+  useEffect(() => {
+    if (path.startsWith("/inbound")) setGroupOpen(true);
+  }, [path]);
 
   useEffect(() => {
     if (mode === "closed") return;
@@ -152,15 +158,26 @@ export function SiteShell({ children }: { children: ReactNode }) {
               홈
             </Link>
             <div className="menu-group">
-              <p className="menu-label">입고</p>
-              <Link
-                className="menu-link menu-sub"
-                href="/inbound/list"
-                aria-current={path === "/inbound/list" ? "page" : undefined}
-                onClick={closeToBtn}
+              <button
+                type="button"
+                className="menu-link menu-parent"
+                aria-expanded={groupOpen}
+                aria-controls={subId}
+                onClick={() => setGroupOpen((open) => !open)}
               >
-                입고 리스트
-              </Link>
+                입고
+                <span className="menu-caret" aria-hidden="true" />
+              </button>
+              <div className="menu-subs" id={subId} hidden={groupOpen ? undefined : true}>
+                <Link
+                  className="menu-link menu-sub"
+                  href="/inbound/list"
+                  aria-current={path === "/inbound/list" ? "page" : undefined}
+                  onClick={closeToBtn}
+                >
+                  입고 리스트
+                </Link>
+              </div>
             </div>
           </nav>
         </div>
