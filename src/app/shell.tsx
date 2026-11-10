@@ -126,7 +126,10 @@ export function SiteShell({ children }: { children: ReactNode }) {
             <p className="brand">WMS Report</p>
           </header>
           <main className="main">{children}</main>
-          <footer className="footer">물류창고 레포트</footer>
+          <footer className="footer">
+            <p className="footer-note">물류창고 레포트</p>
+            <p className="footer-note">개발 시작 2026년 11월 9일 · 사용 도구 Cursor · 100% AI만으로 개발</p>
+          </footer>
           {mode === "pinned" ? (
             <button type="button" className="backdrop" aria-label="메뉴 닫기" onClick={closeToBtn} />
           ) : null}
