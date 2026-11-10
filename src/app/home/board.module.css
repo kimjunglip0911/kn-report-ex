@@ -1,0 +1,164 @@
+.board {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.goal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.goal label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.goal input {
+  width: 120px;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid #d5d8df;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+}
+
+.goal input:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.rates {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.overall,
+.card {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.overall h2,
+.card h2,
+.section {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.overall h2,
+.card h2 {
+  color: var(--muted);
+}
+
+.pct {
+  margin: 8px 0 4px;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.overall .pct {
+  font-size: 44px;
+}
+
+.meta {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e7eaf0;
+}
+
+.fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--focus);
+}
+
+.floors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.section {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th,
+.table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table th {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.table tr:last-child td {
+  border-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .board {
+    padding-inline: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .floors {
+    grid-template-columns: 1fr;
+  }
+
+  .overall .pct {
+    font-size: 36px;
+  }
+}

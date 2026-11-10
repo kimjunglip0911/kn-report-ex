@@ -42,13 +42,28 @@ body {
   position: relative;
   z-index: 45;
   height: 56px;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  column-gap: 12px;
   background: #fff;
   border-bottom: 1px solid var(--line);
 }
 
+.page-name {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
 .brand {
   margin: 0;
+  justify-self: end;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -60,6 +75,7 @@ body {
 }
 
 .menu-btn {
+  justify-self: start;
   height: 32px;
   padding: 0 12px;
   border: 1px solid #d5d8df;

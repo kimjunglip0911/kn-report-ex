@@ -1,4 +1,6 @@
-/** 본문은 비워 둔다. */
-export default function HomePage() {
-  return null;
+import { redirect } from "next/navigation";
+
+/** 첫 주소는 홈 대시보드로 보낸다. */
+export default function IndexPage() {
+  redirect("/home");
 }

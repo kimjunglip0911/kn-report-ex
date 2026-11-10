@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import type { ReactNode } from "react";
+import { TitleFrame } from "./name";
 
-/** 헤더, 빈 본문, 풋, 왼쪽 호버 메뉴. */
+/** 헤더, 풋, 왼쪽 호버 메뉴. */
 type MenuMode = "closed" | "hover" | "pinned";
 
 const OPEN_MS = 180;
@@ -29,6 +31,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
   const closeTimer = useRef<number | null>(null);
   const menuBtn = useRef<HTMLButtonElement>(null);
   const menuId = useId();
+  const path = usePathname();
 
   modeRef.current = mode;
   hoverRef.current = canHover;
@@ -105,39 +108,49 @@ export function SiteShell({ children }: { children: ReactNode }) {
   const open = mode !== "closed";
 
   return (
-    <div className="frame">
-      <header className="header">
-        <button
-          ref={menuBtn}
-          type="button"
-          className="menu-btn"
-          aria-expanded={open}
-          aria-controls={menuId}
-          onClick={togglePinned}
-        >
-          메뉴
-        </button>
-        <p className="brand">WMS Report</p>
-      </header>
-      <main className="main">{children}</main>
-      <footer className="footer">물류창고 레포트</footer>
-      {mode === "pinned" ? (
-        <button type="button" className="backdrop" aria-label="메뉴 닫기" onClick={closeToBtn} />
-      ) : null}
-      <div className="edge" onPointerEnter={scheduleOpen} onPointerLeave={scheduleClose} />
-      <nav
-        id={menuId}
-        className={open ? "menu menu-open" : "menu"}
-        aria-label="메뉴"
-        aria-hidden={open ? undefined : true}
-        inert={open ? undefined : true}
-        onPointerEnter={scheduleOpen}
-        onPointerLeave={scheduleClose}
-      >
-        <Link className="menu-link" href="/" aria-current="page" onClick={closeToBtn}>
-          홈
-        </Link>
-      </nav>
-    </div>
+    <TitleFrame>
+      {(title) => (
+        <div className="frame">
+          <header className="header">
+            <button
+              ref={menuBtn}
+              type="button"
+              className="menu-btn"
+              aria-expanded={open}
+              aria-controls={menuId}
+              onClick={togglePinned}
+            >
+              메뉴
+            </button>
+            <h1 className="page-name">{title}</h1>
+            <p className="brand">WMS Report</p>
+          </header>
+          <main className="main">{children}</main>
+          <footer className="footer">물류창고 레포트</footer>
+          {mode === "pinned" ? (
+            <button type="button" className="backdrop" aria-label="메뉴 닫기" onClick={closeToBtn} />
+          ) : null}
+          <div className="edge" onPointerEnter={scheduleOpen} onPointerLeave={scheduleClose} />
+          <nav
+            id={menuId}
+            className={open ? "menu menu-open" : "menu"}
+            aria-label="메뉴"
+            aria-hidden={open ? undefined : true}
+            inert={open ? undefined : true}
+            onPointerEnter={scheduleOpen}
+            onPointerLeave={scheduleClose}
+          >
+            <Link
+              className="menu-link"
+              href="/home"
+              aria-current={path === "/home" ? "page" : undefined}
+              onClick={closeToBtn}
+            >
+              홈
+            </Link>
+          </nav>
+        </div>
+      )}
+    </TitleFrame>
   );
 }
