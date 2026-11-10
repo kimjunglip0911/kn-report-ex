@@ -7,15 +7,22 @@
   gap: 20px;
 }
 
+.goal,
+.overall,
+.card,
+.tableWrap {
+  border: 0;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
 .goal {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 12px 20px;
-  padding: 16px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #fff;
+  padding: 18px 20px;
 }
 
 .field {
@@ -33,9 +40,10 @@
   width: 120px;
   height: 36px;
   padding: 0 12px;
-  border: 1px solid #d5d8df;
-  border-radius: 8px;
-  background: #fff;
+  border: 0;
+  border-radius: 12px;
+  background: #f4f6fa;
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);
   color: var(--ink);
   font: inherit;
   font-size: 15px;
@@ -54,10 +62,11 @@
 
 .overall,
 .card {
-  padding: 16px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #fff;
+  padding: 18px 20px;
+}
+
+.overall {
+  background: linear-gradient(165deg, #fff 0%, #f3f6ff 100%);
 }
 
 .overall h2,
@@ -93,16 +102,16 @@
 }
 
 .track {
-  height: 8px;
+  height: 10px;
   overflow: hidden;
   border-radius: 999px;
-  background: #e7eaf0;
+  background: #e7edf6;
 }
 
 .fill {
   height: 100%;
   border-radius: inherit;
-  background: var(--focus);
+  background: linear-gradient(90deg, #60a5fa, var(--focus));
 }
 
 .floors {
@@ -117,10 +126,7 @@
 }
 
 .tableWrap {
-  overflow-x: auto;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #fff;
+  overflow: auto;
 }
 
 .table {
@@ -138,9 +144,35 @@
 }
 
 .table th {
+  background: #f7f8fb;
   color: var(--muted);
   font-size: 12px;
   font-weight: 600;
+}
+
+.table tbody tr:hover td {
+  background: #f8fafc;
+}
+
+.picking,
+.idle {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.picking {
+  color: #1d4ed8;
+  background: rgba(29, 78, 216, 0.1);
+}
+
+.idle {
+  color: #9a3412;
+  background: #ffedd5;
 }
 
 .table tr:last-child td {

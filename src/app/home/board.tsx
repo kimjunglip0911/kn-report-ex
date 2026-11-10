@@ -198,7 +198,11 @@ export function Board() {
                   <td>{row.floor}</td>
                   <td>{row.qty.toLocaleString("ko-KR")}</td>
                   <td>{row.due}</td>
-                  <td>{statusLabel[row.status]}</td>
+                  <td>
+                    <span className={row.status === "picking" ? styles.picking : styles.idle}>
+                      {statusLabel[row.status]}
+                    </span>
+                  </td>
                 </tr>
               ))}
             </tbody>
