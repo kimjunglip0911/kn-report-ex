@@ -151,6 +151,17 @@ export function SiteShell({ children }: { children: ReactNode }) {
             >
               홈
             </Link>
+            <div className="menu-group">
+              <p className="menu-label">입고</p>
+              <Link
+                className="menu-link menu-sub"
+                href="/inbound/list"
+                aria-current={path === "/inbound/list" ? "page" : undefined}
+                onClick={closeToBtn}
+              >
+                입고 리스트
+              </Link>
+            </div>
           </nav>
         </div>
       )}

@@ -181,6 +181,21 @@ body {
   background: rgba(29, 78, 216, 0.08);
 }
 
+.menu-group {
+  margin-top: 8px;
+}
+
+.menu-label {
+  margin: 8px 12px 2px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.menu-sub {
+  margin-left: 12px;
+}
+
 @supports (backdrop-filter: blur(16px)) {
   .menu {
     background-color: rgba(255, 255, 255, 0.82);
