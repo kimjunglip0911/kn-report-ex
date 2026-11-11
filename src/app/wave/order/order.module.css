@@ -1,0 +1,14 @@
+.blank {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+.blank p {
+  margin: 0;
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  font-size: 14px;
+}

@@ -31,9 +31,11 @@ export function SiteShell({ children }: { children: ReactNode }) {
   const closeTimer = useRef<number | null>(null);
   const menuBtn = useRef<HTMLButtonElement>(null);
   const menuId = useId();
-  const subId = useId();
+  const inSubId = useId();
+  const waveSubId = useId();
   const path = usePathname();
-  const [groupOpen, setGroupOpen] = useState(path.startsWith("/inbound"));
+  const [inOpen, setInOpen] = useState(path.startsWith("/inbound"));
+  const [waveOpen, setWaveOpen] = useState(path.startsWith("/wave"));
 
   modeRef.current = mode;
   hoverRef.current = canHover;
@@ -70,7 +72,8 @@ export function SiteShell({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    if (path.startsWith("/inbound")) setGroupOpen(true);
+    if (path.startsWith("/inbound")) setInOpen(true);
+    if (path.startsWith("/wave")) setWaveOpen(true);
   }, [path]);
 
   useEffect(() => {
@@ -161,14 +164,14 @@ export function SiteShell({ children }: { children: ReactNode }) {
               <button
                 type="button"
                 className="menu-link menu-parent"
-                aria-expanded={groupOpen}
-                aria-controls={subId}
-                onClick={() => setGroupOpen((open) => !open)}
+                aria-expanded={inOpen}
+                aria-controls={inSubId}
+                onClick={() => setInOpen((open) => !open)}
               >
                 입고
                 <span className="menu-caret" aria-hidden="true" />
               </button>
-              <div className="menu-subs" id={subId} hidden={groupOpen ? undefined : true}>
+              <div className="menu-subs" id={inSubId} hidden={inOpen ? undefined : true}>
                 <Link
                   className="menu-link menu-sub"
                   href="/inbound/list"
@@ -184,6 +187,28 @@ export function SiteShell({ children }: { children: ReactNode }) {
                   onClick={closeToBtn}
                 >
                   랙 현황
+                </Link>
+              </div>
+            </div>
+            <div className="menu-group">
+              <button
+                type="button"
+                className="menu-link menu-parent"
+                aria-expanded={waveOpen}
+                aria-controls={waveSubId}
+                onClick={() => setWaveOpen((open) => !open)}
+              >
+                웨이브
+                <span className="menu-caret" aria-hidden="true" />
+              </button>
+              <div className="menu-subs" id={waveSubId} hidden={waveOpen ? undefined : true}>
+                <Link
+                  className="menu-link menu-sub"
+                  href="/wave/order"
+                  aria-current={path === "/wave/order" ? "page" : undefined}
+                  onClick={closeToBtn}
+                >
+                  주문 리스트
                 </Link>
               </div>
             </div>
