@@ -9,6 +9,9 @@
   --muted: #3c4450;
   --focus: #1d4ed8;
   --shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 12px 32px rgba(15, 23, 42, 0.06);
+  --menu-left: 12px;
+  --menu-span: min(280px, calc(100vw - 36px));
+  --page-line: 16px;
 }
 
 * {
@@ -147,8 +150,8 @@ body {
   z-index: 50;
   top: 68px;
   bottom: 12px;
-  left: 12px;
-  width: min(280px, calc(100vw - 36px));
+  left: var(--menu-left);
+  width: var(--menu-span);
   padding: 12px;
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 24px;
@@ -260,6 +263,10 @@ body {
 }
 
 @media (hover: hover) and (pointer: fine) and (min-width: 768px) {
+  :root {
+    --page-line: calc(var(--menu-left) + var(--menu-span) + 16px);
+  }
+
   .edge {
     display: block;
   }

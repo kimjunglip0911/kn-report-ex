@@ -177,6 +177,14 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 >
                   입고 리스트
                 </Link>
+                <Link
+                  className="menu-link menu-sub"
+                  href="/inbound/rack"
+                  aria-current={path === "/inbound/rack" ? "page" : undefined}
+                  onClick={closeToBtn}
+                >
+                  랙 현황
+                </Link>
               </div>
             </div>
           </nav>
